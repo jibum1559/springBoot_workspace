@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>productList</title>
+
+</head>
+<body>
+	<!-- Thymleaf를 사용하여 상품 목록을 출력 -->
+	<h1 th:text="${products}"></h1>
+	<table>
+		<thead>
+			<tr>
+				<th>제품 아이디</th>
+				<th>제품명</th>
+				<th>카테고리</th>
+				<th>가격</th>				
+				<th>수량</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- 
+				ThymeLeaf 를 활용해서 상품 목록을 출력할 것 
+				th:each
+			-->
+			<tr th:each="product: ${products}"></tr>
+				<td th:text="${product.product_id}"></td>
+				<td th:text="${product.product_name}"></td>
+				<td th:text="${product.category}"></td>
+				<td th:text="${product.price}"></td>
+				<td th:text="${product.stock_quantity"}></td>
+		</tbody>
+		
+		
+	</table>
+	
+	
+	
+</body>
+</html>

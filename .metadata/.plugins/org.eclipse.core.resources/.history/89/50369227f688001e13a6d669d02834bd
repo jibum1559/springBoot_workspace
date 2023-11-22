@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>productList</title>
+
+</head>
+<body>
+	<!-- Thymleaf를 사용하여 상품 목록을 출력 -->
+	<h1 th:text="${products}"></h1>
+	
+	
+	
+</body>
+</html>

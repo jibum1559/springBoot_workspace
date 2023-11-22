@@ -1,0 +1,21 @@
+package com.kh.springdb.model;
+
+import java.sql.Timestamp;
+
+public class Board {
+/*
+ BOARD_ID	NUMBER(10,0)
+TITLE	VARCHAR2(100 BYTE)
+CONTENT	VARCHAR2(200 BYTE)
+IMAGE	BLOB
+CREATED_AT	TIMESTAMP(6)
+AUTHOR	VARCHAR2(50 BYTE) 
+ */
+	private int board_id;
+	private String title;
+	private String content;
+	//private  image;
+	private Timestamp create_at;
+	private String author;
+	
+}
