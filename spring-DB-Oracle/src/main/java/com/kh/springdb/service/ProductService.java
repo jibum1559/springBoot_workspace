@@ -19,7 +19,7 @@ public class ProductService {
 	@Autowired
 	private ProductMapper productMapper;
 	
-	public List<Product> getAllProducts(){
+	public List<Product> getAllProduct(){
 		
 		return productMapper.getAllProducts();
 	}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>login</title>
+</head>
+<body>
+<!--
+	login mname 로그인하기
+	session 제외하고 로그인을 넘겨주는 것 까지만 진행	
+-->
+	<form action="/user/login" method="post">
+		<label for="mname">User Nmae :</label>
+		<input type="text" id="mname" name="mname" required>
+		<br>
+		<label for="memail">User Email :</label>
+		<input type="text" id="memail" name="memail" required>
+		<br>
+		<button type="submit">Login</button>
+	</form>
+	
+	<p th:if="${error}" style="color: red;" th:text="${error}"></p>
+
+</body>
+</html>

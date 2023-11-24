@@ -18,7 +18,7 @@ public class ProductController {
 		//model에 상품을 모두 조회한 상품리스트를 추가할 것
 		//					   ("변수명",내용이 저장되어있는 변수명)
 		//model.addAttribute("products","제품 저장할 공간");
-		model.addAttribute("products",productService.getAllProducts());
+		model.addAttribute("products",productService.getAllProduct());
 		return "productLists"; //ThyemLeaf가 저장되어있는 템플릿의 이름
 	}
 }

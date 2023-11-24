@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>하나의 아이디 가지고오기</title>
+</head>
+<body>
+	<h1>one user info</h1>		
+	<table border="1">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>name</th>
+				<th>email</th>
+				<th>birth</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<div th:if="${user}">
+			<td th:text="${user.mno}"></td>
+			<td th:text="${user.mname}"></td>
+			<td th:text="${user.memail}"></td>
+			<td th:text="${user.mbirth}"></td>
+			</div>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

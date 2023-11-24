@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>유저 정보 조회</title>
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+		<h1>all user info</h1>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>name</th>
+					<th>email</th>
+					<th>birth</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="u : ${users}">
+					<td th:text="${u.mno}"></td>
+					<td th:text="${u.mname}"></td>
+					<td th:text="${u.memail}"></td>
+					<td th:text="${u.mbirth}"></td>
+				</tr>
+			</tbody>
+		</table>
+</body>
+</html>
