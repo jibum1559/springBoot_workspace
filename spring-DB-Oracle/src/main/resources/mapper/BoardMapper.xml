@@ -2,10 +2,49 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.kh.spring.mapper.BoardMapper">
+<mapper namespace="com.kh.springdb.mapper.BoardMapper">
 
-	<select id="getAllBoards" resultType="com.kh.spring.model.Board">
-		SELECT * FROM BOARD
+	<resultMap id="BoardResultMap" type="com.kh.springdb.model.Board">
+		<id property="boardId" column="board_id"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="author" column="author"/>
+	</resultMap>
+	
+	<!-- 게시판에서 게시물 전체 목록 불러오기 -->
+	<select id="getAllBoards" resultMap="BoardResultMap">
+		SELECT * FROM Board
 	</select>
+	
+	<!-- 게시판에서 게시물 1개 상세보기 -->
+	<select id="getBoardById" parameterType="int" resultMap="BoardResultMap">
+		SELECT * FROM BOARD WHERE board_id = #{boardId}
+	</select>
+	
+	<!-- 게시물 저장하기 -->
+ 	<insert id="insertBoard" parameterType="com.kh.springdb.model.Board">
+ 		INSERT INTO Board (board_id, title, content, author)
+ 					VALUES (#{boardId}, #{title}, #{content}, #{author})
+	</insert>
+	
+	<!-- 게시물 수정하기 -->
+	<update id="updateBoard" parameterType="com.kh.springdb.model.Board">
+		UPDATE Board
+		SET 
+			title = #{title},
+			content = #{content},
+			author = #{author}
+		WHERE board_id = #{boardId}
+	</update>
+	
+	<!-- 게시물 삭제하기 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM Board WHERE board_id = #{boardId}
+	</delete>
+	<!-- 게시물 모두 삭제하기 -->
+	<delete id="deleteAllBoards">
+		DELETE FROM Board
+	</delete>
+	
 
 </mapper>

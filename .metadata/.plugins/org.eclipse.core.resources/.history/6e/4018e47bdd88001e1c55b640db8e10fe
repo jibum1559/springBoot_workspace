@@ -1,6 +1,0 @@
-package com.kh.springdb_repository;
-
-public interface ProductRepsitory extends JpaRepository<Product, Long> {
-
-	
-}

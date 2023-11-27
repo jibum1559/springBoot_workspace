@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="EUC-KR">
+<title>게시물 목록보기</title>
+<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<h2>게시물 목록보기</h2>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>아이디</th>
+				<th>제목</th>
+				<th>글쓴이</th>				
+				<th>↓↓↓  click  ↓↓↓</th>				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="board : ${boards}"> <!-- for문 대신 each문 -->
+				<td th:text="${board.boardId}"></td>
+				<td th:text="${board.title}">  </td>
+				<td th:text="${board.author}">  </td>
+				<td>
+					<!-- 게시물 상세보기 버튼 추가 -->
+					<a th:href="@{/boards/{id}(id=${board.boardId})}">View</a></th>
+					<!-- 게시물 추가하기 버튼 추가 -->
+					<a th:href="@{/boards/update/{id}(id=${board.boardId})}">Update</a></th>
+					<!-- 게시물 삭제하기 버튼 추가 -->
+					<a th:href="@{/boards/delete/{id}(id=${board.boardId})}">Delete</a></th>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/boards/create}">게시글 작성하기</a>
+	<a th:href="@{/boards/delete-all-boards}" onclick="showAlert()">모두 삭제</a>
+	<script>
+		function showAlert(){
+			var checkDelete = confirm('정말 모든 게시물을 삭제하시겠습니까?')
+			if(checkDelete){
+				alert('게시물이 삭제되었습니다.');
+			} else {
+				alert('게시물 삭제가 취소되었습니다.');
+			}
+		}
+	</script>
+</body>
+</html>

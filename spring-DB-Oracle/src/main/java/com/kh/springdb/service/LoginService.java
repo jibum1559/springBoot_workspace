@@ -19,7 +19,7 @@ public class LoginService {
 	} //초기화되어야하는 위치이기 때문과 값을 받아와할 것이 있기 때문에 여기에 @Autowired 
 	  //UserService에서는 뿌려주기만 하면 되기 때문에 필드에 썼음	
 	
-	//로그인 기능을 수행하는 login 메서드를 정희하고 있음
+	//로그인 기능을 수행하는 login 메서드를 정의하고 있음
 	public User login(String mname, String memail) {
 		//loginMapper 안에 있는 LoginByMnameAndMemail 메서드를 호출해서
 		//mname, memail 사용해서 데이터베이스에서 해당 정보를 조회할 것임을 나타냄
