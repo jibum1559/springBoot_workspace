@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>제품 상세보기</title>
+	</head>
+	<body>
+		<h2>제품 상세보기</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Category</th>
+					<th>Price</th>
+					<th>Stock Quantity</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="product != null">
+					<td th:text="${product.product_id}"></td>
+					<td th:text="${product.product_name}"></td>
+					<td th:text="${product.category}"></td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${product.stock_quantity}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

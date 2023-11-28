@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>제품 추가하기</title>
+	</head>
+	<body>
+		<h2>제품 추가 폼 작성</h2>
+		<form th:action="@{/products/save}" th:object="${product}"  method="post">
+			<input type="hidden" th:field="*{product_id}"/>
+
+			<label>ID : </label>
+			<span th:text="${product_id}"></span> <!-- 시퀀스로 순차적으로 증가하여야해서 text 사용 -->
+
+			<label>Name</label>
+			<input type="text" th:field="*{product_name}"/>
+			
+			<label>Category :</label>
+			<input type="text" th:field="*{category}"/>
+			
+			<label>Price</label>
+			<input type="text" th:field="*{price}"/>
+			
+			<label>Stock Quantity</label>
+			<input type="text" th:field="*{stock_quantity}"/>
+			
+			<button type="submit">저장하기</button>
+		</form>
+	</body>
+</html>
+
+<!-- 
+th:text
+- 특정 HTML 내용을 유동적으로 설정하는 데 사용
+- 서버에서 전달된 데이터나 변수값을 해당 값에다가 넣어서 텍스트로 출력할 때 사용
+- th:text get 쓴거랑 비슷함
+- 주로 p태그와 같이 무언가를 출력할 때 많이 씀
+
+th:field
+- HTML에 작성한 내용을 유동적으로 설정하는 데 사용
+- 주로 사용자가 입력한 값을 서버로 전송할 때 사용(set)
+- 주로 input 태그와 같이 사용자가 무언가를 작성해서 DB로 전송할 때 사용
+- 또는 예외적으로 서버에서 전달된 데이터나 변수를 폼에 필드값으로 설정(get)
+	1. th:field="*{변수명}"
+	- 폼에 작성해준 변수명을 정의할 때 주로 사용
+	- 변수명의 상대적인 경로로 *{변수명}으로 적어준 속성을 나타냄
+	
+	2. th:field="${변수명}"
+	- 변수를 나타내는 표현
+	- 컨트롤러에서 모델에 추가된 속성을 가져와서 필드안에 넣어줄 때 많이 사용
+
+-->
