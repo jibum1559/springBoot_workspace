@@ -31,9 +31,11 @@ public class ProductService {
 	public Optional<Product> getProductById(Long id){
 		return productRepository.findById(id);
 	}
-	//저장하는 메서드
+	//저장하는 메서드 
+		//최초로 작성한 내용 저장
+		//최초로 작성한 내용 수정해서 저장
 	public Product saveProduct(Product product) {
-		return productRepository.save(product);
+		return productRepository.save(product); //이미 레포지토리에서 저장 작업이 끝난 상태
 	}
 	//삭제하는 메서드
 	public void deleteProductById(Long id) {

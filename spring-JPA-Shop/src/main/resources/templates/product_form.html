@@ -9,8 +9,7 @@
 		<form th:action="@{/products/save}" th:object="${product}"  method="post">
 			<input type="hidden" th:field="*{product_id}"/>
 
-			<label>ID : </label>
-			<span th:text="${product_id}"></span> <!-- 시퀀스로 순차적으로 증가하여야해서 text 사용 -->
+			<label>ID: </label><span th:text="${product_id}"></span><br/> <!-- 시퀀스로 순차적으로 증가하여야해서 text 사용 -->
 
 			<label>Name</label>
 			<input type="text" th:field="*{product_name}"/>

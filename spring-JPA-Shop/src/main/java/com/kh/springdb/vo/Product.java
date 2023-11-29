@@ -1,9 +1,5 @@
 package com.kh.springdb.vo;
 
-
-
-
-
 //import org.springframework.data.annotation.Id; //Nosql 에서 씀
 import jakarta.persistence.Id; //관계형 sql (우리가 지금 쓰는 것)
 import jakarta.persistence.*;
@@ -21,10 +17,13 @@ public class Product {
 	*/
 //	MySQL -> @GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY) -> 주로 MySQL, PostgreSQL, MS SQL Server 등에서 사용
 //	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
 //	@Column(name="product_id")
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PRODUCTS_SEQUENCE")
+	@SequenceGenerator(name = "PRODUCTS_SEQUENCE", sequenceName="PRODUCTS_SEQUENCE", allocationSize = 1)
 	private Long product_id;
 //	@Column(nullable = false, length = 50) //String 에 대한 name="product_name" 이 자동으로 만들어져서 제외(아래 설명 참조)
 	private String product_name;
@@ -34,6 +33,16 @@ public class Product {
 	private double price;
 	private Integer stock_quantity;
 }
+
+
+
+
+
+
+
+
+
+
 	//필드값의 순서가 다르면 실행 안됨. 필드값의 유형이 String으로 통일해도 실행되고 String으로 변환되어 출력됨.
 /*
  @Table : 테이블 이름을 지정
@@ -55,7 +64,7 @@ public class Product {
  
  @SequenceGenerator(name = "product_sequence", sequenceName="PRODUCT_SEQ", allocationSize = 1)
   - 데이터베이스 자체에서 자동으로 값이 증가할 수 있도록 자동생성이 들어있는 경우 아래 어노테이션 방식을 사용
-  - 새로운 레코드가 삽입될 때마다 데이터베이스가 자동으로 기본키ㅏ의 값을 증가시킴
+  - 새로운 레코드가 삽입될 때마다 데이터베이스가 자동으로 기본키의 값을 증가시킴
   
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  

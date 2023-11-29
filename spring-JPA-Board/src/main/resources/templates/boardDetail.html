@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>게시물 상세보기</title>
+	</head>
+	<body>
+		<h2>게시물 상세보기</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>BoardId</th>
+					<th>Title</th>
+					<th>Content</th>
+					<th>Author</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="board != null">
+					<td th:text="${board.boardId}"></td>
+					<td th:text="${board.title}"></td>
+					<td th:text="${board.content}"></td>
+					<td th:text="${board.author}"></td>
+				</tr>
+			</tbody>
+		</table>
+			<a th:href="@{/boards}">돌아가기</a>
+	</body>
+</html>

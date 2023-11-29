@@ -70,7 +70,8 @@ public class BoardController {
 	
 	//게시글 삭제하기
 	@GetMapping("/delete/{boardId}")
-	public String deleteBoard(@PathVariable int boardId) {
+	//뒤에 아이디 값을 가져와야하기 떄문에 @PathVariable 사용
+	public String deleteBoard(@PathVariable int boardId) { 
 		boardService.deleteBoard(boardId);
 		return "redirect:/boards";
 	}
