@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Cafe List</title>
+	</head>
+	<body>
+		<h2>Cafe List</h2>
+ 		<form th:action="@{cafes}" method="get">
+			 <label>카페 검색 :</label>
+			 <input type="text" id="search" name="name"/>
+			 <button type="submit">Search</button>
+		 </form>
+ 		
+ 		
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>카페이름</th>
+					<th>지역</th>
+					<th>영업시간</th>
+					<th>상세보기</th>
+					<th>폐업</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cafe : ${cafes}">
+					<td th:text="${cafe.cafeId}"></td>
+					<td th:text="${cafe.name}"></td>
+					<td th:text="${cafe.location}"></td>
+					<td th:text="${cafe.openingHours}"></td>
+					
+					<!--
+					<td>	
+						<a th:href="@{'/cafes/' + ${cafe.cafeId}}">보기</a>
+						<a th:href="@{'/cafes/delete/' + ${cafe.cafeId}}">삭제</a>
+					</td>
+					-->
+						
+						<td><a th:href="@{/cafes/detail/{id}(id=${cafe.cafeId})}">보기</a></td>
+						<td><a th:href="@{/cafes/delete/{id}(id=${cafe.cafeId})}">삭제</a></td>
+					
+					
+				</tr>
+			</tbody>
+		</table>
+ 		<button><a th:href="@{/cafes/new}">카페 추가하기</a></button>
+	</body>
+</html>

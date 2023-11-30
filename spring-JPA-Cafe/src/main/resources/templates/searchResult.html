@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="EUC-KR">
+	<title>검색 결과</title>
+	</head>
+	<body>
+		<h2>검색 결과</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>Location</th>
+					<th>OpeningHours</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!--검색 결과를 반복해서 표시-->
+				<tr th:each="c : ${cafes}">
+					<td th:text="${c.cafesId}"></td>
+					<td th:text="${c.name}"></td>
+					<td th:text="${c.location}"></td>
+					<td th:text="${c.openingHours}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/cafes}">Back to Home</a>
+	</body>
+</html>

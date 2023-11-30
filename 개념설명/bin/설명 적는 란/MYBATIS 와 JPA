@@ -1,0 +1,16 @@
+*MYBATIS
+----------------------------------------------------------------------
+ MODEL   mapper.xml   MAPPER |     SERVICE     |       CONTROLLER    |   VIEW
+							 |		    	   |					 |
+*JPA						 | 			       |					 |
+    MODEL    REPOSITORY      |     SERVICE     |       CONTROLLER    |   VIEW
+----------------------------------------------------------------------
+
+
+SERVICE : 
+- 앞에서 진행했던 DB를 가져오는 구문을 처리하는 역할을 함
+- 상호작용(SELECT INSERT UPDATE DELETE)
+
+CONTROLLER : 
+- HTML 요청을 처리하고 사용자를 위한 데이터베이스를 서비스를 통해서 전달해줌
+- 서비스에서 전달받은 결과를 view에다가 전달해줌(중간역할)

@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+html -> 자바로 바로 통신할 수 있는게 없음
+jsp -> html과 java에서 가져온 내용을 연동하기 위해 사용하는 템플릿 <% %>
+
+spring에서는 정말 완전하게 html은 html 역할을 하고 자바에서는 자바 역할을 했으면 좋겠다!!
+
+thymeleaf -> spring 너네는 html과 자바가 분리됐으면 좋겠니? 그럼 내가 지원해줄게!
+			 xml에다가 나를 포함시켜줘. 가져오는건 내가할게!
+
+XML
+- 데이터를 저장하고 전송하기 위해서 사용하는 언어
+- 자바에서 가져오는 내용을 html에 삽입해주기 위해 사용할 수 있는 라이브러리
+
+xmls 
+- xml에서 사용하는 주소와 이름을 나타내는 공간
+
+
+※ <tr th:each="product : ${products}">
+- 향상된 for문
+
+※ th:object="${product}"
+
+	@GetMapping("/new")
+	public String displayProductForm(Model model) {
+		model.addAttribute("product", new Product()); 모델에 저장만 해두고 리턴해준 것
+		return "product_form";
+		
+- product 이름에다가 new Product()라는 빈공간을 생성해줌으로
+  각각의 값들이 들어갈 수 있도록 값 위치만 넣어준 것일 뿐
+  
+ ※ th:text = 데이터베이스에서 값을 가지고옴
+	 	th:object = "${product}" 애초에 값을 하나만 가지고 오겠다고 한 것
+	 	- 새로운 값이 자동으로 들어가야할 수 있음(100번의 숫자가 있으면 101번부터 들어가도록) Insert
+	 	- 기존에 있던 값이 또 한 번 들어가야할 수 있음(내가 쓴 글을 수정하기 위해 한번 더 입력할 때) Update
+	 	
+	 	=>제목: 글쓴이: 내용: 첨부파일: 동영상 항목 추가: 제출하기
+	 		- 이럴때는 html 하나만 만들고 컨트롤러에서 메서드 하나만 추가해서 메서드에서 기존에 id값이
+	 		  있는지 없는지 존재 여부만 체크하고 만약 값이 있다면 수정으로 가고 값이 없다면 새로 만들기로 보내자
+	 	
+	 	th:text = ${product_id} -> getProductId
+	 	th:text = ${product.product_id} -> products 중에서 하나씩 가지고와서 넣어줄 때 이렇게 사용

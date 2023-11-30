@@ -1,0 +1,26 @@
+Path
+- 개발자들이 개발하기 위해 url 대신에 사용하는 위치 경로 
+- C:\Users\user1\SpringBoot_workspace 와 같은 경로
+- url 보다 Path 가 상위버전
+
+(@PathVariable int boardId)
+- 경로 값으로 id라는 값을 가지고 오겠다는 의미
+
+기본포트 80
+- 기본 값이기 때문에 충돌이 일어날 수 있음
+- 개발을 해야할 때 8080 으로 사용
+
+Repository
+
+- 조회 : 전체조회(findAll), 아이디 하나만 조회(findById), findOne,
+		저장 : save
+		삭제 : deleteById
+		
+- findOne : 
+  -> 조건에 해당하는 엔터티 중에서 첫 번째 엔터티만 반환
+  -> 조건에 해당하는 엔터티가 없으면 null을 반환
+  
+- findById : 
+  -> 일반적으로 프라이머리 키에 해당하는 엔터티를 찾아서 반환
+  -> Optional Optional.empty() = 빈 값으로 반환 처리를 할 수 있음
+  -> JPA 2.0 이후로 출시된 findOne 보다는 최신 버전		
