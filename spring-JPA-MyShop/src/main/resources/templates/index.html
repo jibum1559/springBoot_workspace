@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>BEOM Shopping Mall</title>
+	</head>
+	<body>
+		<h2>BEOM 쇼핑몰에 오신걸 환영합니다.</h2>
+		<div>
+			<th:block th:if="${loginMember} =! null">
+				<p>로그아웃</p>
+			</th:block>
+			
+			<th:block th:unless="${loginMember} == null">
+			<form>
+				<input type="email" name="email" placeholder="이메일을 입력해주세요." required/><br>
+				<input type="password" name="password" placeholder="비밀번호를 입력해주세요." required/>
+				<button type="submit">로그인</button>
+			</form>				
+			</th:block>
+			
+			<a href="/members/new">회원가입</a>
+		</div>
+		<p>배너자리</p>
+		<img src="img/귀여운토끼(수정).png">
+		<div>쇼핑 리스트</div>
+		
+	</body>
+</html>

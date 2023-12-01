@@ -76,6 +76,25 @@ public class CafeController {
 		return "redirect:/cafes";
 	}
 	
+	//@GetMapping을 활용해서 count 해준 location을 가지고오기
+	@GetMapping("/count")
+	public String countCafesByLocation(@RequestParam String location, Model model) {
+		int cafeCount = cafeService.countCafeByLocation(location);
+		//1. 지역값을 저장할 모델
+		//2. 지역 갯수를 저장해줄 모델
+		model.addAttribute("location", location);
+		model.addAttribute("cafeCount", cafeCount);
+		return "cafeCount";
+	}
+	
+	//카페가 존재하는지 확인여부
+	@GetMapping("/exists/{name}")
+	public String existsCafeByName(@PathVariable String name, Model model) {
+		boolean cafeExists = cafeService.existsCafeByName(name);
+		model.addAttribute("cafeExists", cafeExists);
+		return "cafeExists";
+	}
+	
 }
 /*
 @GetMapping("/search")

@@ -20,6 +20,7 @@
 					<th>카페이름</th>
 					<th>지역</th>
 					<th>영업시간</th>
+					<th>지역의 카페수 확인</th>
 					<th>상세보기</th>
 					<th>폐업</th>
 				</tr>
@@ -37,7 +38,7 @@
 						<a th:href="@{'/cafes/delete/' + ${cafe.cafeId}}">삭제</a>
 					</td>
 					-->
-						
+						<td><a th:href="@{/cafes/count(location=${cafe.location})}">이 지역의 카페 갯수 확인하기</a></td>
 						<td><a th:href="@{/cafes/detail/{id}(id=${cafe.cafeId})}">보기</a></td>
 						<td><a th:href="@{/cafes/delete/{id}(id=${cafe.cafeId})}">삭제</a></td>
 					
