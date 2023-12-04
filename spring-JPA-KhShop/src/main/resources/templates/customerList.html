@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Customer List</title>
+	</head>
+	<body>
+		<h2>Customer List</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>닉네임</th>
+					<th>이메일</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="customer : ${customers}">
+					<td th:text="${customer.customerId}"></td>
+					<td th:text="${customer.nickName}"></td>
+					<td th:text="${customer.customerEmail}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<button><a th:href="@{/customers/new}">가입하기</a></button>
+	</body>
+</html>
