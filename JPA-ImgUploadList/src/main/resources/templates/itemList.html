@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Item List</title>
+	</head>
+	<body>
+		<h1>상품리스트</h1>
+		<a th:href="@{/item/new}">상품추가하기</a>
+		<div th:each="item : ${items}">
+			<img th:src="@{${item.getImgPath()}}" /><br>
+			<label>제품명 : </label>
+			<span th:text="${item.name}"></span><br>
+			<label>제품가격 : </label>
+			<span th:text="${item.price}"></span><br>
+			<label>재고수량 : </label>
+			<span th:text="${item.stock}"></span><br>
+			<a th:href="@{/item/view/{id}(id=${item.id})}">상세보기</a>
+			
+			<form>
+				<button type="submit">장바구니에담기</button>
+			</form>
+		</div>
+	</body>
+</html>

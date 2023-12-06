@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Item View</title>
+		<style>
+			.item-container {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.item {
+				float: left;
+				width: 200px;
+				border: 1px solid #ccc;
+				padding: 10px;
+				text-align: center;
+				margin: 10px;
+			}
+			.item img {
+				width: 100%;
+				height: auto;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<h1 th:text="${item.name}">상세보기</h1>
+		<!--img 경로와 이미지 이름-->
+		<!--이미지가 없을 수 있으니 이미지가 없으면 안보여주고 이미지가 존재한다면 보여줄 수 있도록 설정-->
+		<div class="item-container">
+			<div class="item">
+				<div th:if="${item.imgName != null and item.imgPath != null}">
+					<img th:src="@{'/img/' + item.imgPath + '/' + item.imgName}">
+				</div>
+				<div th:unless="${item.imgName != null and item.imgPath != null}">
+					<img th:src="@{/img/NoIMG.png}"/>
+				</div>
+				<img th:src="@{${item.imgPath}}">
+				<label>상세설명</label>
+				<p th:text="${item.text}"></p>
+				
+				<label>가격</label>
+				<p th:text="${item.price}"></p>
+				
+				<label>재고</label>
+				<p th:text="${item.stock}"></p>
+				
+				<a href="@{item/list}">돌아가기</a>
+			</div>
+		</div>
+	</body>
+</html>
