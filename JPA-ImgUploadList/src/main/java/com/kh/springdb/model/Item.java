@@ -18,8 +18,8 @@ public class Item {
 
 	//id name text price count stock isSoldout
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_seq")
-	@SequenceGenerator(name="item_seq", sequenceName="item_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "itemA_seq")
+	@SequenceGenerator(name="itemA_seq", sequenceName="itemA_seq", allocationSize = 1)
 	private int id;
 	
 	//물건이름

@@ -17,7 +17,8 @@
 			<span th:text="${item.stock}"></span><br>
 			<a th:href="@{/item/view/{id}(id=${item.id})}">상세보기</a>
 			
-			<form>
+			<form th:action="@{/cart/add}" method="post">
+				<input type="hidden" name="itemId" th:value="${item.id}"/>
 				<button type="submit">장바구니에담기</button>
 			</form>
 		</div>
