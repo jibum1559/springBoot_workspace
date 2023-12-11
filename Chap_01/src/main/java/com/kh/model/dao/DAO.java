@@ -45,7 +45,7 @@ public class DAO {
 	}//selectAllUsers()
 	
 	//2. user_id 검색을 통해 사용자가 있는지 확인하는 SQL문
-		public static List<DTO> searchUsersById(String user_id) throws SQLException{
+		public static List<DTO> selectUserById(String user_id) throws SQLException{
 			
 			//1-1 커넥션 연결하기 위한 getConnection()
 			Connection conn = JDBCTemplate.getConnection();

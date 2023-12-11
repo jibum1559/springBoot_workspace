@@ -13,44 +13,34 @@ import javax.servlet.http.HttpServletResponse;
 import com.kh.model.dao.DAO;
 import com.kh.model.vo.DTO;
 
-
-@WebServlet("/UserServlet")
+@WebServlet("/selectUser")
 public class UserServlet extends HttpServlet {
-    
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//사용자로부터 입력 받은 데이터 처리 및 DAO 호출 작업을 수행
-		
+	//doGet ->
+	//전체조회 : List<DTO> userList = DAO.selectAllUsers();
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		//사용자로부터 입력받은 데이터 처리 및 DAO 호출 작업을 수행
+		//list로 조회된 결과를 가지고 옴
 		try {
+			//전체조회 : List<DTO> userList = DAO.selectAllUsers();
+			//아이디1개조회 : 
+				//사용자가 입력한 ID를 가지고오기
+			String userId =request.getParameter("userId");
+			List<DTO> userList = DAO.selectUserById(userId);
 			
-			List<DTO> userList = null;
-			String userId = request.getParameter("userId");
-			
-			//빈값 검색 > 전체 조회 결과
-			if(userId == null || userId.isEmpty()) {
-				
-				userList = DAO.selectAllUsers();
+			// 1. 비어있지 않거나 null값이 아닐 때는 전체조회
+			if (userList != null && !userList.isEmpty()) {
 				request.setAttribute("userList", userList);
 				request.getRequestDispatcher("/searchResult.jsp").forward(request, response);
 				
 			} else {
-				//else : 검색 키워드가 존재할 경우
-				
-				userList = DAO.searchUsersById(request.getParameter("userId"));
-				
-				//일치하는 값이 존재할 경우
-				if(userList != null && !userList.isEmpty()) {
-					request.setAttribute("userList", userList);
-					request.getRequestDispatcher("/searchResult.jsp").forward(request, response);
-					
-				} else {
-					//검색 키워드와 일치하는 결과가 없을 때
-					request.getRequestDispatcher("/searchError.jsp").forward(request, response);
-					//response.sendRedirect(request.getContextPath() + "/searchError.jsp");
-				}
+				// 3. 검색 결과가 없을 때
+				request.getRequestDispatcher("/searchError.jsp").forward(request, response);
 			} 
+
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			response.sendRedirect(request.getContextPath() + "/error.jsp");
 		}
 	}
 
