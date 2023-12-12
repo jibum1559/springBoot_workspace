@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <title>View</title>
+	    <style>
+			.product-container {
+				max-width: 900px;
+				margin: 0 auto;
+			}
+			.product {
+				float: left;
+				width: 200px;
+				border: 1px solid #ccc;
+				padding: 10px;
+				text-align: center;
+				margin: 10px;
+			}
+			.product img {
+				width: 100%;
+				height: auto;
+			}
+		</style>
+	</head>
+	<body>
+	    <h1>View</h1>
+	    <!--img 경로와 이미지 이름-->
+		<!--이미지가 없을 수 있으니 이미지가 없으면 안보여주고 이미지가 존재한다면 보여줄 수 있도록 설정-->
+		<div class="product-container">
+			<div class="product">	   
+			    <div th:if="${product.imgName != null and product.imgPath != null}">
+			        <img th:src="@{${product.imgPath}}"/>
+			    </div>
+			    <div th:unless="${product.imgName != null and product.imgPath != null}">
+			        <img th:src="@{'/img/NoIMG.jpg'}" />
+			    </div>
+			    <label>상품명</label>
+			    <span th:text="${product.name}"></span>
+			    <br>
+			    <label>상세설명</label>
+			    <span th:text="${product.text}"></span>
+			    <br>
+			    <label>가격</label>
+			    <span th:text="${product.price}"></span>
+			    <br>
+			    <label>재고</label>
+			    <span th:text="${product.stock}"></span>
+			    <br>
+			    
+			    <!-- 댓글 표시 -->
+			    <h2>댓글</h2>
+			    <div th:each="comment : ${product.comments}">
+					<p th:text="${comment.content}"></p>
+				</div>
+				
+			    <!-- 댓글 입력 폼 -->
+				<form th:action="@{/addComment}" method="post">
+					<input type="hidden" name="productId" th:value="${product.id}"/>
+					<label>댓글 작성</label>
+					<input type="text" id="commentContent" name="commentContent">
+					<button type="submit">댓글등록</button>
+				</form>
+				
+			    <a th:href="@{/product/list}">돌아가기</a>
+			  </div>
+		 </div>
+	</body>
+</html>

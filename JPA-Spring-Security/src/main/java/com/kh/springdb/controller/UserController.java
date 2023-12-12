@@ -42,7 +42,7 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	
+	//post -> insert 문 같이 데이터를 집어넣을 때 사용
 	@GetMapping("/login")
 	public String login() {
 		return "login_form";
