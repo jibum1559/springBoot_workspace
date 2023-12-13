@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,9 +29,9 @@ public class ProductService {
 		public Page<Product> getList(int page){
 		/*
 		int conPage = Math.max(0, page);
-		Pageable pageable = PageRequest.of(conPage, 1);
+		Pageable pageable = PageRequest.of(conPage, 1);// page 페이지 값,  1= 페이지당 보여줄 목록 개수
 		*/
-		Pageable pageable = PageRequest.of(page, 1);// page 페이지 값,  1= 페이지당 보여줄 목록 개수
+		Pageable pageable = PageRequest.of(page, 3, Sort.by("createDate").descending());
 		return productRepository.findAll(pageable);
 		}
 	
@@ -54,6 +55,14 @@ public class ProductService {
 	//상품 상세페이지나 수정하기 위해 아이디를 가져와서 상품을 보여주거나 수정할 수 있게 가져오는 메서드
 	public Product getProductById(int id) {
 		return productRepository.findProductById(id);
-		
+	}
+	
+	//제품에 좋아요를 받을 수 있도록 서비스 만들어줌
+	public void likeProduct(int productId) {
+		Product product = productRepository.findById(productId).orElse(null);
+		if(product != null) {
+			product.setLikes(product.getLikes() + 1);
+			productRepository.save(product);
+		}
 	}
 }

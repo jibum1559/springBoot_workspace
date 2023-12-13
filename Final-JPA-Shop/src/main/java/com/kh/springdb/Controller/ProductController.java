@@ -30,11 +30,11 @@ public class ProductController {
 	}
 	
 	//페이지네이션 체크를 하기 위한 GetMapping 추가
-		@GetMapping("/list")
+		@GetMapping("/product/list")
 		public String pageList(Model model, @RequestParam(value="page", defaultValue="0") int page){
 			//@RequestParam(value="page", defaultValue="0")
 			//어떤 값을 가지고 요청을 할지 지정하기 위해 @RequestParam을 이용함음
-			// value="page" 값으로 page 이름을ㅇ 받기로 지정
+			// value="page" 값으로 page 이름을 받기로 지정
 			//만약에 초반이나 후반에 어떤 값이 page 안에 없다면 page가 null값이라면 
 			//기본값으로 0으로 설정해서 초기값을 null이 아닌 0으로 처리하겠다.
 			//페이지는 배열값으로 0이지만 변수에는 추후 1이 할당될 예정
@@ -43,16 +43,17 @@ public class ProductController {
 			model.addAttribute("paging", paging);
 			return "product_List";
 		}
-	
+	/*
 	//상품 전체 목록 페이지로 이동하기 위한 GetMapping
 	@GetMapping("/product/list")
 	public String productList(Model model) {
 		//아이템을 추가한 서비스를 불러와서 모델에 넣어주기
 		List<Product> products = productService.allProductView();
 		model.addAttribute("products", products);
-		return "productList";
+		return "product_List";
 	}
-	
+	*/
+		
 	//상품 등록 페이지 - 조회
 	@GetMapping("/product/new")
 	public String productSaveForm(Model model) {
@@ -89,5 +90,11 @@ public class ProductController {
 		commentService.addComment(productId, commentContent);
 		return "redirect:/product/detail/" + productId;
 	}
+	
+	//like 한 내용 받아줄 수 있게 PostMapping (나중에 쓸 예정)
+	//public String likeProduct(/* 추가로 나중에 변수 값 넣어줄 것*/) {
+	//	productService.likeProduct(/*추후 아이디 값이나 like를 넣어줄 예정*/);
+	//	return "redirect:/like";
+	//}
 	
 }

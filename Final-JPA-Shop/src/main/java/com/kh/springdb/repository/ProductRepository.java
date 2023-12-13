@@ -12,4 +12,6 @@ public interface ProductRepository extends JpaRepository <Product, Integer>{
 	
 	//오후에 작성할 페이지네이션 메서드
 	Page<Product> findAll(Pageable pageable);
+	
+	Page<Product> findAllByOrderByCreateDateDesc(Pageable pageable);
 }
