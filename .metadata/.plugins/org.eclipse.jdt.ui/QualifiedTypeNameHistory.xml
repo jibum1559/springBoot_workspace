@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="com.kh.springdb.service.ProductService"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
     <fullyQualifiedTypeName name="com.kh.springdb.model.UserRole"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Sort"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.PrePersist"/>
 </qualifiedTypeNameHistroy>

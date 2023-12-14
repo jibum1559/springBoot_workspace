@@ -44,10 +44,12 @@ public class Product {
 	private String imgName;
 	private String imgPath;
 	
-	@DateTimeFormat(pattern = "yyyy-mm-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDate createDate;
 	
 	//자동으로 날짜 생성해서 넣기
+	//DB에 INSERT 되기 직전에 실행. 즉 DB에 값을 넣으면 자동으로 실행됨
+	@PrePersist
 	public void createDate() {
 		this.createDate = LocalDate.now();
 	}
