@@ -13478,3 +13478,35 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.hibernate
 2024-01-11 10:29:28,609 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@3b6639{/help,null,AVAILABLE}
 2024-01-11 10:29:28,641 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@2948580a{HTTP/1.1, (http/1.1)}{127.0.0.1:58456}
 2024-01-11 10:29:28,653 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@13f94095{STARTING}[10.0.18,sto=0] @1697408ms
+2024-01-15 09:31:31,750 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-01-15 15:14:00,659 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-10.0.18; built: 2023-10-27T01:59:58.245Z; git: 8545fd9bf4cd0d0838f626b405fd4963441546b7; jvm 17.0.9+9
+2024-01-15 15:14:00,690 [Start Help Server] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2024-01-15 15:14:00,718 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@e95d435{/help,null,AVAILABLE}
+2024-01-15 15:14:00,739 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@7741dbb1{HTTP/1.1, (http/1.1)}{127.0.0.1:55721}
+2024-01-15 15:14:00,754 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@2ae432a1{STARTING}[10.0.18,sto=0] @20594392ms
+2024-01-15 19:08:26,504 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@2ae432a1{STOPPING}[10.0.18,sto=0]
+2024-01-15 19:08:26,511 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@7741dbb1{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2024-01-15 19:08:26,517 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@e95d435{/help,null,STOPPED}
+2024-01-15 19:10:54,771 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-01-15 19:11:08,164 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:08,180 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-01-15 19:11:08,185 [Worker-6: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\SpringBoot_workspace\Chap_02\src\test\resources
+2024-01-15 19:11:09,920 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:09,940 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 2 resources from src\main\resources to target\classes
+2024-01-15 19:11:09,948 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\SpringBoot_workspace\Chap_03\src\test\resources
+2024-01-15 19:11:11,294 [Worker-20: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/Chap_02: com.kh.springdb:Chap_02:0.0.1-SNAPSHOT with classifier  to /Chap_02/target/classes
+2024-01-15 19:11:11,387 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:11,402 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 16 resources from src\main\resources to target\classes
+2024-01-15 19:11:11,435 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-15 19:11:12,474 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:12,498 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-01-15 19:11:12,507 [Worker-20: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\SpringBoot_workspace\JPA-ImgUpload-Cart-Order\src\test\resources
+2024-01-15 19:11:13,772 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:13,794 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 8 resources from src\main\resources to target\classes
+2024-01-15 19:11:13,814 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\SpringBoot_workspace\JPA-ImgUploadList\src\test\resources
+2024-01-15 19:11:14,853 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:14,874 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-01-15 19:11:14,884 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-01-15 19:11:15,896 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-01-15 19:11:15,918 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2024-01-15 19:11:15,926 [Worker-16: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
